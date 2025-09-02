@@ -4,7 +4,7 @@ function App() {
   const [uploadedImages, setUploadedImages] = useState([])
   const [selectedTruckCategory, setSelectedTruckCategory] = useState(1)
   const [isProcessing, setIsProcessing] = useState(false)
-  const [showResults, setShowResults] = useState(false)
+  const [showResults, setShowResults] = useState(true)
   const [showFinalResults, setShowFinalResults] = useState(false)
 
   const truckCategories = [
