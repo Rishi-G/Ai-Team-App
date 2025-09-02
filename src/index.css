@@ -1,34 +1,67 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-@layer base {
-  * {
-    @apply box-border;
-  }
-  
-  body {
-    @apply bg-neutral text-base-content font-inter antialiased;
-    line-height: 1.5;
-  }
-
-  #root {
-    @apply min-h-screen;
-  }
+@theme {
+  --color-primary: #FF8A0C;
+  --color-primary-dark: #CF822F;
+  --color-bg-primary: #1D1D1D;
+  --color-bg-secondary: #282828;
+  --color-bg-accent: #3E3E3E;
+  --color-text-secondary: #B0B0B0;
+  --color-text-muted: #7D7D7D;
+  --color-border: rgba(152, 152, 152, 0.32);
+  --color-success-bg: #082608;
+  --color-success-border: rgba(46, 167, 48, 0.32);
 }
 
-@layer components {
-  .btn-primary-custom {
-    @apply bg-primary hover:bg-primary/90 text-black font-medium px-6 py-3 rounded-lg transition-colors;
-  }
-  
-  .card-custom {
-    @apply bg-base-200 rounded-xl border border-opacity-30 shadow-inset-custom;
-  }
-  
-  .input-custom {
-    @apply bg-base-300 border border-gray-600 rounded-lg px-4 py-2 text-base-content placeholder-text-muted;
-  }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #1D1D1D;
+  color: #ffffff;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.btn-primary-custom {
+  background-color: #FF8A0C;
+  color: #000;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary-custom:hover {
+  background-color: rgba(255, 138, 12, 0.9);
+}
+
+.card-custom {
+  background-color: #282828;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(152, 152, 152, 0.32);
+  box-shadow: 0 0 4px -2px rgba(0, 0, 0, 0.25) inset;
+}
+
+.input-custom {
+  background-color: #3E3E3E;
+  border: 1px solid #6b7280;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+}
+
+.input-custom::placeholder {
+  color: #7D7D7D;
 }
