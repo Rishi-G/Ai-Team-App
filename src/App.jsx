@@ -118,6 +118,106 @@ function App() {
         </div>
       </header>
 
+      {/* Hero Section */}
+      <section className="relative min-h-screen bg-gradient-to-b from-black to-neutral-900 overflow-hidden">
+        {/* Background Animation/Pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '60px 60px'
+          }}></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row items-center min-h-screen">
+          {/* Left Side - Text Content */}
+          <div className="lg:w-1/2 space-y-8 text-center lg:text-left">
+            <div className="space-y-4">
+              <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight">
+                Box Dimension Estimator
+                <br />
+                <span className="text-primary">& Truck Packing</span>
+              </h1>
+            </div>
+
+            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <h2 className="text-2xl font-bold text-white">
+                  Advance <span className="text-primary">Ai model</span> Algorithm
+                </h2>
+              </div>
+
+              <p className="text-gray-300 text-lg leading-relaxed mb-8">
+                Our AI optimizes truck space utilization by precisely calculating box dimensions and packing efficiency. By focusing on speed and precision, we ensure tasks are completed faster without compromising quality. Through innovative design, we maximize 3D available space, minimizing waste and optimizing every cubic inch. This revolutionary approach to logistics efficiency transforms the need for excessive manpower. The result is a smarter, faster system that performs better, uses resources, and allows teams to focus on what they matter: Whether in logistics, manufacturing, or supply chain, our AI-powered system elevates performance across speed, clarity, and control.
+              </p>
+
+              <button className="btn bg-primary hover:bg-primary/90 text-black font-bold px-8 py-3 rounded-full border-0 text-lg">
+                Get Started Now
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          {/* Right Side - AI Mapping Section */}
+          <div className="lg:w-1/2 lg:pl-12 mt-12 lg:mt-0">
+            <div className="relative">
+              {/* Box Images */}
+              <div className="mb-8">
+                <img
+                  src="https://api.builder.io/api/v1/image/assets/TEMP/b3691f86e598a125854e84f54d73ebbcda8642f5?width=400"
+                  alt="Box illustration"
+                  className="w-full max-w-md mx-auto"
+                />
+              </div>
+
+              {/* Warehouse Background */}
+              <div className="relative">
+                <img
+                  src="https://api.builder.io/api/v1/image/assets/TEMP/warehouse-bg.jpg"
+                  alt="Warehouse background"
+                  className="w-full rounded-2xl opacity-80"
+                />
+
+                {/* AI Mapping Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-2xl flex flex-col justify-end p-8">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center animate-pulse">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2"/>
+                        <path d="M12 2C13.09 2 14 2.91 14 4C14 5.09 13.09 6 12 6" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                        <path d="M12 18C10.91 18 10 18.91 10 20C10 21.09 10.91 22 12 22" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-white text-xl font-bold">AI Based <span className="text-primary">Mapping</span></h3>
+                      <p className="text-gray-300">for your boxes</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
+          <p className="text-gray-400 text-sm mb-2">Scroll Down</p>
+          <div className="flex flex-col items-center">
+            <svg className="w-6 h-6 text-gray-400 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
       {/* Main Content */}
       <main className="max-w-7xl mx-auto p-4 md:p-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
