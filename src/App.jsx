@@ -4,8 +4,8 @@ function App() {
   const [uploadedImages, setUploadedImages] = useState([])
   const [selectedTruckCategory, setSelectedTruckCategory] = useState(1)
   const [isProcessing, setIsProcessing] = useState(false)
-  const [showResults, setShowResults] = useState(true)
-  const [showFinalResults, setShowFinalResults] = useState(true)
+  const [showResults, setShowResults] = useState(false)
+  const [showFinalResults, setShowFinalResults] = useState(false)
 
   const truckCategories = [
     { id: 1, name: 'Truck Category 1', description: '22ft X 10Ft , 22Tons, 8 wheelers, Tata' },
