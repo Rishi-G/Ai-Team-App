@@ -1,20 +1,34 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  
+  body {
+    @apply bg-neutral text-base-content font-inter antialiased;
+    line-height: 1.5;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #1a1a1a;
-  color: #ffffff;
-  line-height: 1.5;
-}
-
-#root {
-  min-height: 100vh;
+@layer components {
+  .btn-primary-custom {
+    @apply bg-primary hover:bg-primary/90 text-black font-medium px-6 py-3 rounded-lg transition-colors;
+  }
+  
+  .card-custom {
+    @apply bg-base-200 rounded-xl border border-opacity-30 shadow-inset-custom;
+  }
+  
+  .input-custom {
+    @apply bg-base-300 border border-gray-600 rounded-lg px-4 py-2 text-base-content placeholder-text-muted;
+  }
 }
