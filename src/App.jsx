@@ -284,10 +284,8 @@ function App() {
               {truckCategories.map((category) => (
                 <button
                   key={category.id}
-                  className={`w-full p-4 rounded-lg border transition-all flex items-center gap-4 text-left ${
-                    selectedTruckCategory === category.id
-                      ? 'bg-[#502F0C] border-primary'
-                      : 'bg-transparent border-gray-600 hover:border-primary/50'
+                  className={`w-full p-4 truck-glass flex items-center gap-4 text-left ${
+                    selectedTruckCategory === category.id ? 'active' : ''
                   }`}
                   onClick={() => setSelectedTruckCategory(category.id)}
                 >
