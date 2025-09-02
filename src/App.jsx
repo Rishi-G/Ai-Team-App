@@ -426,11 +426,11 @@ function App() {
       <footer className="bg-black text-center py-16 mt-16">
         <div className="mb-8">
           <p className="text-gray-400 text-sm mb-4">Footer Links</p>
-          <div className="flex justify-center space-x-8">
-            <a href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Privacy Policy</a>
-            <a href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Terms of Service</a>
-            <a href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Support</a>
-            <a href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Contact</a>
+          <div className="flex justify-center space-x-4">
+            <a href="#" className="text-gray-500 hover:text-primary transition-colors text-sm px-3 py-2 rounded-lg hover:bg-white/5">Privacy Policy</a>
+            <a href="#" className="text-gray-500 hover:text-primary transition-colors text-sm px-3 py-2 rounded-lg hover:bg-white/5">Terms of Service</a>
+            <a href="#" className="text-gray-500 hover:text-primary transition-colors text-sm px-3 py-2 rounded-lg hover:bg-white/5">Support</a>
+            <a href="#" className="text-gray-500 hover:text-primary transition-colors text-sm px-3 py-2 rounded-lg hover:bg-white/5">Contact</a>
           </div>
         </div>
         <p className="text-xs text-gray-600">copyright@ 2025 | www.outworx.com</p>
