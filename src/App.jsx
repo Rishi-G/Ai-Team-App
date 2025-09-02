@@ -131,12 +131,36 @@ function App() {
         <div className="relative max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row items-center min-h-screen">
           {/* Left Side - Text Content */}
           <div className="lg:w-1/2 space-y-8 text-center lg:text-left">
-            <div className="space-y-4">
-              <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight">
-                Box Dimension Estimator
+            <div className="space-y-6">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
+                <span className="text-primary text-sm font-semibold">🚀 AI-Powered Logistics Revolution</span>
+              </div>
+              <h1 className="text-4xl lg:text-7xl font-bold text-white leading-tight">
+                Smart Box Packing
                 <br />
-                <span className="text-primary">& Truck Packing</span>
+                <span className="text-primary bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">
+                  AI Solutions
+                </span>
               </h1>
+              <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
+                Optimize your logistics with advanced AI that calculates perfect box dimensions and maximizes truck space utilization. Save time, reduce costs, and eliminate waste.
+              </p>
+
+              {/* Statistics */}
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 py-8">
+                <div className="text-center">
+                  <div className="text-3xl lg:text-4xl font-bold text-primary">95%</div>
+                  <div className="text-sm text-gray-400">Space Efficiency</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl lg:text-4xl font-bold text-primary">50%</div>
+                  <div className="text-sm text-gray-400">Cost Reduction</div>
+                </div>
+                <div className="text-center lg:col-span-1 col-span-2">
+                  <div className="text-3xl lg:text-4xl font-bold text-primary">10K+</div>
+                  <div className="text-sm text-gray-400">Boxes Optimized</div>
+                </div>
+              </div>
             </div>
 
             <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
