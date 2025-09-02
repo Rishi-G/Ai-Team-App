@@ -225,11 +225,11 @@ function App() {
       <main id="upload-section" className="max-w-7xl mx-auto p-4 md:p-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Upload Section */}
-          <div className="card-custom p-6">
+          <div className="card-glass p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-sm font-bold text-primary">Kindly Upload the Box Images</h2>
-              <button className="btn btn-ghost btn-sm">
-                <span className="text-primary font-bold">+</span>
+              <button className="interactive-glass w-8 h-8 flex items-center justify-center rounded-full">
+                <span className="text-primary font-bold text-lg">+</span>
               </button>
             </div>
             
