@@ -263,7 +263,7 @@ function App() {
 
         {/* Final Results Section */}
         {showFinalResults && (
-          <div className="card bg-success-bg border border-success-border p-6 shadow-inset-custom">
+          <div className="card-custom p-6" style={{backgroundColor: '#082608', borderColor: 'rgba(46, 167, 48, 0.32)'}}>
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-sm font-bold">
                 <span className="text-primary">BestFit</span>{' '}
