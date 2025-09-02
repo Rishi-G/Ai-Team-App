@@ -272,11 +272,11 @@ function App() {
           </div>
 
           {/* Vehicle Selection */}
-          <div className="card-custom p-6">
+          <div className="card-glass p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-sm font-bold text-primary">Select Your Vehicle</h2>
-              <button className="btn btn-ghost btn-sm">
-                <span className="text-primary font-bold text-xs">+ Add Vehicle</span>
+              <button className="btn-glass text-xs font-bold">
+                <span className="text-primary">+ Add Vehicle</span>
               </button>
             </div>
             
