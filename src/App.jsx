@@ -380,8 +380,8 @@ function App() {
             </div>
             
             <div className="mt-6 text-center">
-              <button 
-                className="btn bg-primary hover:bg-primary/90 text-black font-bold px-8 py-3 rounded-full border-0"
+              <button
+                className="btn-glass-primary flex items-center gap-3 mx-auto"
                 onClick={handleFindBestTruck}
               >
                 <SearchIcon />
