@@ -233,8 +233,8 @@ function App() {
               </button>
             </div>
             
-            <div 
-              className="border-2 border-dashed border-gray-600 rounded-xl p-8 min-h-[200px] bg-bg-accent flex flex-col justify-center items-center"
+            <div
+              className="upload-glass p-8 min-h-[200px] flex flex-col justify-center items-center"
               onDragOver={handleDragOver}
               onDrop={handleDrop}
             >
