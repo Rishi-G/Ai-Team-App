@@ -107,12 +107,12 @@ function App() {
             </div>
 
             {/* Navigation */}
-            <nav className="hidden md:flex items-center gap-9">
-              <a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors">Home</a>
-              <a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors">About</a>
-              <a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors">Products</a>
-              <a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors">Contact Sales</a>
-              <a href="#" className="text-sm text-primary font-bold">Book Demo</a>
+            <nav className="hidden md:flex items-center gap-6">
+              <a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors px-3 py-2 rounded-lg hover:bg-white/5">Home</a>
+              <a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors px-3 py-2 rounded-lg hover:bg-white/5">About</a>
+              <a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors px-3 py-2 rounded-lg hover:bg-white/5">Products</a>
+              <a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors px-3 py-2 rounded-lg hover:bg-white/5">Contact Sales</a>
+              <a href="#" className="btn-glass text-sm text-primary font-bold">Book Demo</a>
             </nav>
           </div>
         </div>
