@@ -1,0 +1,451 @@
+.app {
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* Header */
+.header {
+  background-color: #2a2a2a;
+  padding: 1rem 0;
+  border-bottom: 1px solid #333;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.logo-text {
+  background: linear-gradient(45deg, #ff8c00, #ffa500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #ff8c00;
+}
+
+.book-demo {
+  background-color: #ff8c00;
+  color: #000 !important;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* Main Content */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  color: #ff8c00;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* Upload Section */
+.upload-section {
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.upload-area {
+  background-color: #333;
+  border: 2px dashed #555;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.upload-icon {
+  font-size: 3rem;
+  opacity: 0.6;
+}
+
+.upload-text {
+  color: #ccc;
+  font-size: 1.1rem;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-button, .process-button {
+  background-color: #ff8c00;
+  color: #000;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.upload-button:hover, .process-button:hover {
+  background-color: #e07b00;
+}
+
+.uploaded-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-preview {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #555;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remove-image {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.processing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.processing-bar {
+  width: 80%;
+  height: 8px;
+  background-color: #555;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.processing-fill {
+  height: 100%;
+  background-color: #ff8c00;
+  width: 60%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { width: 0%; }
+  50% { width: 80%; }
+  100% { width: 60%; }
+}
+
+/* Vehicle Section */
+.vehicle-section {
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.truck-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.truck-category {
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #fff;
+  text-align: left;
+}
+
+.truck-category:hover {
+  background-color: #444;
+  border-color: #ff8c00;
+}
+
+.truck-category.selected {
+  background-color: #ff8c00;
+  color: #000;
+  border-color: #ff8c00;
+}
+
+.truck-icon {
+  font-size: 1.5rem;
+}
+
+.truck-info h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.truck-info p {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.load-more {
+  background: none;
+  border: 1px solid #555;
+  color: #ff8c00;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.load-more:hover {
+  background-color: #333;
+  border-color: #ff8c00;
+}
+
+/* Results Section */
+.results-section {
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  margin-bottom: 3rem;
+}
+
+.results-table {
+  background-color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.results-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.results-table th,
+.results-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #555;
+}
+
+.results-table th {
+  background-color: #444;
+  font-weight: 500;
+  color: #ff8c00;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-btn, .delete-btn {
+  padding: 0.25rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.edit-btn {
+  background-color: #ff8c00;
+  color: #000;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.find-truck-btn {
+  background-color: #ff8c00;
+  color: #000;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+/* Workflow Section */
+.workflow-section {
+  background-color: #2a2a2a;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.workflow-description {
+  color: #ccc;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.workflow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.workflow-step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.step-indicator {
+  background-color: #ff8c00;
+  color: #000;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.step-content h3 {
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.step-content p {
+  color: #ccc;
+  margin-bottom: 0.5rem;
+}
+
+.step-link {
+  color: #ff8c00;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.step-link:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  background-color: #111;
+  text-align: center;
+  padding: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .main {
+    padding: 1rem;
+  }
+
+  .main-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .upload-area {
+    min-height: 200px;
+    padding: 1rem;
+  }
+
+  .uploaded-images {
+    flex-direction: column;
+  }
+
+  .results-table {
+    overflow-x: auto;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .workflow-steps {
+    gap: 1rem;
+  }
+}
