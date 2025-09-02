@@ -165,7 +165,7 @@ function App() {
 
             <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center animate-pulse">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M2 17L12 22L22 17" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -173,23 +173,31 @@ function App() {
                   </svg>
                 </div>
                 <h2 className="text-2xl font-bold text-white">
-                  Advance <span className="text-primary">Ai model</span> Algorithm
+                  Advanced <span className="text-primary">AI Algorithm</span>
                 </h2>
               </div>
 
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                Our AI optimizes truck space utilization by precisely calculating box dimensions and packing efficiency. By focusing on speed and precision, we ensure tasks are completed faster without compromising quality. Through innovative design, we maximize 3D available space, minimizing waste and optimizing every cubic inch. This revolutionary approach to logistics efficiency transforms the need for excessive manpower. The result is a smarter, faster system that performs better, uses resources, and allows teams to focus on what they matter: Whether in logistics, manufacturing, or supply chain, our AI-powered system elevates performance across speed, clarity, and control.
+                Our cutting-edge AI optimizes truck space utilization with precision-engineered algorithms. Experience lightning-fast calculations that maximize 3D space efficiency while reducing operational costs and eliminating waste.
               </p>
 
-              <button
-                className="btn-glass-primary text-lg flex items-center gap-3"
-                onClick={() => document.getElementById('upload-section').scrollIntoView({ behavior: 'smooth' })}
-              >
-                Get Started Now
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  className="btn-glass-primary text-lg flex items-center gap-3 justify-center"
+                  onClick={() => document.getElementById('upload-section').scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Start Free Trial
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+                <button className="btn-glass text-lg flex items-center gap-3 justify-center">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M10 4.5V4a2 2 0 012-2v0a2 2 0 012 2v.5" />
+                  </svg>
+                  Watch Demo
+                </button>
+              </div>
             </div>
           </div>
 
