@@ -313,11 +313,11 @@ function App() {
 
         {/* Results Section */}
         {showResults && (
-          <div className="card-custom p-6 mb-8">
+          <div className="card-glass p-6 mb-8">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-sm font-bold text-primary">Uploaded Box Details</h2>
-              <button className="btn btn-ghost btn-sm">
-                <span className="text-primary font-bold">-</span>
+              <button className="interactive-glass w-8 h-8 flex items-center justify-center rounded-full">
+                <span className="text-primary font-bold text-lg">-</span>
               </button>
             </div>
             
