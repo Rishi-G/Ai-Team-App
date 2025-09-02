@@ -324,32 +324,61 @@ function App() {
             </div>
             
             <div className="overflow-x-auto">
-              <table className="table w-full">
-                <thead>
-                  <tr className="border-b border-gray-600">
-                    <th className="text-text-secondary font-bold text-xs">Items</th>
-                    <th className="text-text-secondary font-bold text-xs">Box Type</th>
-                    <th className="text-text-secondary font-bold text-xs">Quantity</th>
-                    <th className="text-text-secondary font-bold text-xs">Dimension</th>
-                    <th className="text-primary font-bold text-xs">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {boxResults.map((box, index) => (
-                    <tr key={index} className="border-b border-gray-700/50">
-                      <td className="text-text-secondary text-xs">{box.item}</td>
-                      <td className="text-text-secondary text-xs">{box.boxType}</td>
-                      <td className="text-text-secondary text-xs">{box.quantity}</td>
-                      <td className="text-text-secondary text-xs">{box.dimension}</td>
-                      <td className="text-xs">
-                        <span className="text-primary cursor-pointer hover:underline">Edit</span>
-                        <span className="text-gray-500 mx-1">|</span>
-                        <span className="text-primary cursor-pointer hover:underline">Delete</span>
-                      </td>
+              <div className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-sm rounded-xl border border-gray-700/50">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-gray-700/50 bg-gray-800/50">
+                      <th className="text-left py-4 px-6 text-gray-300 font-semibold text-sm uppercase tracking-wide">Items</th>
+                      <th className="text-left py-4 px-6 text-gray-300 font-semibold text-sm uppercase tracking-wide">Box Type</th>
+                      <th className="text-left py-4 px-6 text-gray-300 font-semibold text-sm uppercase tracking-wide">Quantity</th>
+                      <th className="text-left py-4 px-6 text-gray-300 font-semibold text-sm uppercase tracking-wide">Dimension</th>
+                      <th className="text-left py-4 px-6 text-primary font-semibold text-sm uppercase tracking-wide">Actions</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {boxResults.map((box, index) => (
+                      <tr key={index} className="border-b border-gray-700/30 hover:bg-gray-800/30 transition-colors duration-200">
+                        <td className="py-4 px-6 text-white text-sm font-medium">{box.item}</td>
+                        <td className="py-4 px-6 text-gray-300 text-sm">{box.boxType}</td>
+                        <td className="py-4 px-6 text-gray-300 text-sm">
+                          <span className="bg-gray-700/50 px-3 py-1 rounded-full text-xs font-medium">
+                            {box.quantity}
+                          </span>
+                        </td>
+                        <td className="py-4 px-6 text-gray-300 text-sm font-mono">{box.dimension}</td>
+                        <td className="py-4 px-6">
+                          <div className="flex items-center gap-3">
+                            <button className="flex items-center gap-1 text-primary hover:text-primary/80 text-sm font-medium transition-colors duration-200 hover:bg-primary/10 px-3 py-1 rounded-md">
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                              </svg>
+                              Edit
+                            </button>
+                            <button className="flex items-center gap-1 text-red-400 hover:text-red-300 text-sm font-medium transition-colors duration-200 hover:bg-red-400/10 px-3 py-1 rounded-md">
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                              </svg>
+                              Delete
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+
+                {/* Table Footer with Summary */}
+                <div className="border-t border-gray-700/50 bg-gray-800/30 px-6 py-4">
+                  <div className="flex justify-between items-center">
+                    <div className="text-sm text-gray-400">
+                      Total Items: <span className="text-white font-medium">{boxResults.length}</span>
+                    </div>
+                    <div className="text-sm text-gray-400">
+                      Total Quantity: <span className="text-white font-medium">{boxResults.reduce((sum, box) => sum + box.quantity, 0)}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             
             <div className="mt-6 text-center">
