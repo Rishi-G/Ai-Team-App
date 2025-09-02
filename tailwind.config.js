@@ -1,3 +1,5 @@
+import daisyui from 'daisyui'
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -26,14 +28,14 @@ export default {
       }
     },
   },
-  plugins: ["@tailwindcss/typography", "daisyui"],
+  plugins: [daisyui],
   daisyui: {
     themes: [
       {
         bestfit: {
           "primary": "#FF8A0C",
           "primary-content": "#000000",
-          "secondary": "#CF822F",
+          "secondary": "#CF822F", 
           "accent": "#282828",
           "neutral": "#1D1D1D",
           "base-100": "#1D1D1D",
