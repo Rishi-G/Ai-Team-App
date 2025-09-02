@@ -263,7 +263,7 @@ function App() {
                     className="hidden"
                     id="file-upload"
                   />
-                  <label htmlFor="file-upload" className="btn-primary-custom cursor-pointer">
+                  <label htmlFor="file-upload" className="btn-glass-primary cursor-pointer inline-block">
                     Upload & Process
                   </label>
                 </div>
