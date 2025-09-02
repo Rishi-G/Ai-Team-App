@@ -157,7 +157,10 @@ function App() {
                 Our AI optimizes truck space utilization by precisely calculating box dimensions and packing efficiency. By focusing on speed and precision, we ensure tasks are completed faster without compromising quality. Through innovative design, we maximize 3D available space, minimizing waste and optimizing every cubic inch. This revolutionary approach to logistics efficiency transforms the need for excessive manpower. The result is a smarter, faster system that performs better, uses resources, and allows teams to focus on what they matter: Whether in logistics, manufacturing, or supply chain, our AI-powered system elevates performance across speed, clarity, and control.
               </p>
 
-              <button className="btn bg-primary hover:bg-primary/90 text-black font-bold px-8 py-3 rounded-full border-0 text-lg">
+              <button
+                className="btn bg-primary hover:bg-primary/90 text-black font-bold px-8 py-3 rounded-full border-0 text-lg"
+                onClick={() => document.getElementById('upload-section').scrollIntoView({ behavior: 'smooth' })}
+              >
                 Get Started Now
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -219,7 +222,7 @@ function App() {
       </section>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto p-4 md:p-8">
+      <main id="upload-section" className="max-w-7xl mx-auto p-4 md:p-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Upload Section */}
           <div className="card-custom p-6">
@@ -393,7 +396,16 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#111] text-center py-4 mt-16">
+      <footer className="bg-black text-center py-16 mt-16">
+        <div className="mb-8">
+          <p className="text-gray-400 text-sm mb-4">Footer Links</p>
+          <div className="flex justify-center space-x-8">
+            <a href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Privacy Policy</a>
+            <a href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Terms of Service</a>
+            <a href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Support</a>
+            <a href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Contact</a>
+          </div>
+        </div>
         <p className="text-xs text-gray-600">copyright@ 2025 | www.outworx.com</p>
       </footer>
     </div>
