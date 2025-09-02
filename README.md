@@ -1,6 +1,6 @@
 # Ai-Team-App
 
-This repository was initialized by Builder.io.
+This repository was initialized by Rishi-G
 
 ## Getting Started
 
