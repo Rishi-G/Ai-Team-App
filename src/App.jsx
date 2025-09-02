@@ -92,7 +92,7 @@ function App() {
   )
 
   return (
-    <div className="min-h-screen bg-neutral text-base-content font-inter" data-theme="bestfit">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-base-content font-inter" data-theme="bestfit">
       {/* Header */}
       <header className="bg-gradient-to-b from-[#353535] to-[#2E2E2E] border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 py-3">
