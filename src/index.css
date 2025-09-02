@@ -1,0 +1,247 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --color-primary: #FF8A0C;
+  --color-primary-dark: #CF822F;
+  --color-bg-primary: #1D1D1D;
+  --color-bg-secondary: #282828;
+  --color-bg-accent: #3E3E3E;
+  --color-text-secondary: #B0B0B0;
+  --color-text-muted: #7D7D7D;
+  --color-border: rgba(152, 152, 152, 0.32);
+  --color-success-bg: #082608;
+  --color-success-border: rgba(46, 167, 48, 0.32);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #1D1D1D;
+  color: #ffffff;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.btn-primary-custom {
+  background-color: #FF8A0C;
+  color: #000;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary-custom:hover {
+  background-color: rgba(255, 138, 12, 0.9);
+}
+
+.card-custom {
+  background-color: #282828;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(152, 152, 152, 0.32);
+  box-shadow: 0 0 4px -2px rgba(0, 0, 0, 0.25) inset;
+}
+
+.input-custom {
+  background-color: #3E3E3E;
+  border: 1px solid #6b7280;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+}
+
+.input-custom::placeholder {
+  color: #7D7D7D;
+}
+
+/* Glassmorphism Button Styles */
+.btn-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.btn-glass:hover::before {
+  left: 100%;
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-glass:active {
+  transform: translateY(0);
+}
+
+/* Primary Glass Button */
+.btn-glass-primary {
+  background: rgba(255, 138, 12, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 138, 12, 0.3);
+  border-radius: 50px;
+  color: #FF8A0C;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glass-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 138, 12, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.btn-glass-primary:hover::before {
+  left: 100%;
+}
+
+.btn-glass-primary:hover {
+  background: rgba(255, 138, 12, 0.3);
+  border-color: rgba(255, 138, 12, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(255, 138, 12, 0.2);
+  color: white;
+}
+
+.btn-glass-primary:active {
+  transform: translateY(-1px);
+}
+
+/* Card Glass Effect */
+.card-glass {
+  background: rgba(40, 40, 40, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-glass:hover {
+  background: rgba(40, 40, 40, 0.8);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Interactive Glass Elements */
+.interactive-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-glass:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Truck Selection Glass */
+.truck-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.truck-glass:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 138, 12, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.truck-glass.active {
+  background: rgba(255, 138, 12, 0.15);
+  border-color: rgba(255, 138, 12, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 138, 12, 0.1);
+}
+
+/* Action Button Glass */
+.action-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+}
+
+.action-glass:hover {
+  background: rgba(255, 138, 12, 0.1);
+  border-color: rgba(255, 138, 12, 0.3);
+  transform: translateY(-1px);
+}
+
+.action-glass.delete:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Upload Area Glass */
+.upload-glass {
+  background: rgba(62, 62, 62, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.upload-glass:hover {
+  background: rgba(62, 62, 62, 0.5);
+  border-color: rgba(255, 138, 12, 0.4);
+  transform: scale(1.02);
+}
