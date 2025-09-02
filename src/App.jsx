@@ -253,6 +253,177 @@ function App() {
         </div>
       </section>
 
+      {/* Features Section */}
+      <section className="py-20 bg-gradient-to-b from-neutral-900 to-black">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              Why Choose <span className="text-primary">BestFIT</span>?
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Revolutionary AI technology that transforms how you pack and ship, delivering unmatched efficiency and cost savings.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: "🤖",
+                title: "AI-Powered Precision",
+                description: "Advanced machine learning algorithms analyze box dimensions with 99.9% accuracy for optimal packing solutions."
+              },
+              {
+                icon: "⚡",
+                title: "Lightning Fast Results",
+                description: "Get instant packing recommendations in under 3 seconds. No more manual calculations or guesswork."
+              },
+              {
+                icon: "💰",
+                title: "Cost Optimization",
+                description: "Reduce shipping costs by up to 50% through intelligent space utilization and waste elimination."
+              },
+              {
+                icon: "📊",
+                title: "Real-time Analytics",
+                description: "Track packing efficiency, space utilization, and cost savings with comprehensive dashboards."
+              },
+              {
+                icon: "🔧",
+                title: "Easy Integration",
+                description: "Seamlessly integrate with existing logistics systems via our powerful API and plugins."
+              },
+              {
+                icon: "🌍",
+                title: "Eco-Friendly",
+                description: "Reduce carbon footprint by minimizing truck trips and optimizing package dimensions."
+              }
+            ].map((feature, index) => (
+              <div key={index} className="card-glass p-6 text-center group">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                <p className="text-gray-300 leading-relaxed">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-20 bg-black">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              How It <span className="text-primary">Works</span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Simple, fast, and intelligent. Get optimized packing solutions in just three easy steps.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {[
+              {
+                step: "01",
+                title: "Upload Box Images",
+                description: "Simply drag and drop photos of your boxes or packages. Our AI instantly recognizes dimensions and shapes.",
+                icon: "📸"
+              },
+              {
+                step: "02",
+                title: "Select Vehicle Type",
+                description: "Choose from our comprehensive database of truck categories and vehicle specifications for accurate planning.",
+                icon: "🚛"
+              },
+              {
+                step: "03",
+                title: "Get Optimized Results",
+                description: "Receive instant 3D visualization and packing recommendations that maximize space and minimize costs.",
+                icon: "✨"
+              }
+            ].map((step, index) => (
+              <div key={index} className="relative text-center">
+                <div className="card-glass p-8 relative z-10">
+                  <div className="text-6xl mb-6">{step.icon}</div>
+                  <div className="text-primary text-lg font-bold mb-2">Step {step.step}</div>
+                  <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
+                  <p className="text-gray-300 leading-relaxed">{step.description}</p>
+                </div>
+                {index < 2 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-6 z-0">
+                    <svg className="w-12 h-12 text-primary/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 bg-gradient-to-b from-black to-neutral-900">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
+                Transform Your <span className="text-primary">Logistics Today</span>
+              </h2>
+              <div className="space-y-6">
+                {[
+                  "Reduce shipping costs by up to 50%",
+                  "Eliminate manual dimension calculations",
+                  "Increase packing efficiency by 95%",
+                  "Real-time optimization recommendations",
+                  "Seamless integration with existing systems",
+                  "24/7 AI-powered support"
+                ].map((benefit, index) => (
+                  <div key={index} className="flex items-center gap-4">
+                    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-lg text-gray-300">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8">
+                <button
+                  className="btn-glass-primary text-lg flex items-center gap-3"
+                  onClick={() => document.getElementById('upload-section').scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Try It Free Now
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="card-glass p-8">
+                <div className="bg-gradient-to-br from-primary/20 to-orange-500/20 rounded-xl p-8 text-center">
+                  <h3 className="text-2xl font-bold text-white mb-4">Ready to Optimize?</h3>
+                  <p className="text-gray-300 mb-6">Join thousands of businesses saving money and time with AI-powered logistics.</p>
+                  <div className="grid grid-cols-2 gap-4 text-center">
+                    <div>
+                      <div className="text-3xl font-bold text-primary">500+</div>
+                      <div className="text-sm text-gray-400">Happy Customers</div>
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold text-primary">99.9%</div>
+                      <div className="text-sm text-gray-400">Accuracy Rate</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Main Content */}
       <main id="upload-section" className="max-w-7xl mx-auto p-4 md:p-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
