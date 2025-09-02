@@ -393,14 +393,14 @@ function App() {
 
         {/* Final Results Section */}
         {showFinalResults && (
-          <div className="card-custom p-6" style={{backgroundColor: '#082608', borderColor: 'rgba(46, 167, 48, 0.32)'}}>
+          <div className="card-glass p-6" style={{background: 'rgba(8, 38, 8, 0.8)', borderColor: 'rgba(46, 167, 48, 0.32)', backdropFilter: 'blur(20px)'}}>
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-sm font-bold">
                 <span className="text-primary">BestFit</span>{' '}
                 <span className="text-gray-400">Results for you Boxes are -</span>
               </h2>
-              <button className="btn btn-ghost btn-sm">
-                <span className="text-white font-bold">-</span>
+              <button className="interactive-glass w-8 h-8 flex items-center justify-center rounded-full">
+                <span className="text-white font-bold text-lg">-</span>
               </button>
             </div>
             
