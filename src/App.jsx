@@ -1,32 +1,31 @@
 import { useState } from 'react'
-import './App.css'
 
 function App() {
   const [uploadedImages, setUploadedImages] = useState([])
-  const [selectedTruckCategory, setSelectedTruckCategory] = useState(null)
+  const [selectedTruckCategory, setSelectedTruckCategory] = useState(1)
   const [isProcessing, setIsProcessing] = useState(false)
   const [showResults, setShowResults] = useState(false)
+  const [showFinalResults, setShowFinalResults] = useState(false)
 
   const truckCategories = [
-    { id: 1, name: 'Truck Category 1', description: '24\'x6\'x6\' capacity, 180 boxes' },
-    { id: 2, name: 'Truck Category 2', description: '20\'x5\'x5\' capacity, 120 boxes' },
-    { id: 3, name: 'Truck Category 3', description: '18\'x4.5\'x4.5\' capacity, 90 boxes' },
-    { id: 4, name: 'Truck Category 4', description: '16\'x4\'x4\' capacity, 60 boxes' },
-    { id: 5, name: 'Truck Category 5', description: '14\'x3.5\'x3.5\' capacity, 40 boxes' }
-  ]
-
-  const workflowSteps = [
-    { title: 'Basic Steps described here', description: 'Some Content goes here Some Content goes here' },
-    { title: 'Basic Steps described here', description: 'Some Content goes here Some Content goes here' },
-    { title: 'Basic Steps described here', description: 'Some Content goes here Some Content goes here' },
-    { title: 'Basic Steps described here', description: 'Some Content goes here Some Content goes here' }
+    { id: 1, name: 'Truck Category 1', description: '22ft X 10Ft , 22Tons, 8 wheelers, Tata' },
+    { id: 2, name: 'Truck Category 2', description: '18ft X 8Ft , 16Tons, 6 wheelers, Eicher' },
+    { id: 3, name: 'Truck Category 3', description: '40ft X 8Ft , 35Tons, 10 wheelers, Volvo' },
+    { id: 4, name: 'Truck Category 4', description: '10ft X 6Ft , 4Tons, 4 wheelers, Mahindra' },
+    { id: 5, name: 'Truck Category 5', description: '32ft X 8Ft , 25Tons, 12 wheelers, Ashok Leyland' }
   ]
 
   const boxResults = [
-    { item: 'Large', boxType: 'Plastic Box', quantity: 20, dimension: '40"x 20"' },
-    { item: 'Medium', boxType: 'Plastic Box', quantity: 15, dimension: '30"x 15"' },
-    { item: 'Large', boxType: 'Plastic Box', quantity: 30, dimension: '40"x 20"' },
-    { item: 'Large', boxType: 'Plastic Box', quantity: 20, dimension: '40"x 20"' }
+    { item: 'Large', boxType: 'Plastic Box', quantity: 20, dimension: '40"X 20"' },
+    { item: 'Large', boxType: 'Plastic Box', quantity: 20, dimension: '40"X 20"' },
+    { item: 'Large', boxType: 'Plastic Box', quantity: 20, dimension: '40"X 20"' },
+    { item: 'Large', boxType: 'Plastic Box', quantity: 20, dimension: '40"X 20"' }
+  ]
+
+  const defaultBoxImages = [
+    'https://api.builder.io/api/v1/image/assets/TEMP/b3691f86e598a125854e84f54d73ebbcda8642f5?width=214',
+    'https://api.builder.io/api/v1/image/assets/TEMP/b3691f86e598a125854e84f54d73ebbcda8642f5?width=214',
+    'https://api.builder.io/api/v1/image/assets/TEMP/b3691f86e598a125854e84f54d73ebbcda8642f5?width=214'
   ]
 
   const handleImageUpload = (files) => {
@@ -36,6 +35,9 @@ function App() {
       url: URL.createObjectURL(file)
     }))
     setUploadedImages([...uploadedImages, ...newImages])
+    if (!showResults) {
+      setTimeout(() => setShowResults(true), 500)
+    }
   }
 
   const handleDragOver = (e) => {
@@ -62,165 +64,237 @@ function App() {
   }
 
   const handleFindBestTruck = () => {
-    // Logic for finding best truck
-    console.log('Finding best truck...')
+    setShowFinalResults(true)
   }
 
+  const TruckIcon = () => (
+    <svg width="45" height="44" viewBox="0 0 45 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10.3394 25.6667C11.396 25.6664 12.4202 26.0313 13.2387 26.6995C14.0572 27.3676 14.6197 28.2981 14.831 29.3333H27.756V11H7.58936C6.6169 11 5.68426 11.3863 4.99663 12.0739C4.309 12.7616 3.92269 13.6942 3.92269 14.6667V29.3333H5.84769C6.05901 28.2981 6.62152 27.3676 7.44003 26.6995C8.25853 26.0313 9.28276 25.6664 10.3394 25.6667ZM10.3394 34.8333C9.28276 34.8335 8.25853 34.4687 7.44003 33.8005C6.62152 33.1324 6.05901 32.2019 5.84769 31.1667H2.08936V14.6667C2.08936 13.208 2.66882 11.809 3.70027 10.7776C4.73172 9.74613 6.13066 9.16667 7.58936 9.16667H27.756C28.2423 9.16667 28.7086 9.35983 29.0524 9.70364C29.3962 10.0475 29.5894 10.5138 29.5894 11V14.6667H35.0894L40.5894 22V31.1667H36.831C36.6206 32.2028 36.0585 33.1343 35.2399 33.8033C34.4213 34.4724 33.3966 34.8379 32.3394 34.8379C31.2821 34.8379 30.2574 34.4724 29.4388 33.8033C28.6202 33.1343 28.0581 32.2028 27.8477 31.1667H14.831C14.6197 32.2019 14.0572 33.1324 13.2387 33.8005C12.4202 34.4687 11.396 34.8335 10.3394 34.8333ZM10.3394 27.5C9.61001 27.5 8.91054 27.7897 8.39481 28.3055C7.87909 28.8212 7.58936 29.5206 7.58936 30.25C7.58936 30.9793 7.87909 31.6788 8.39481 32.1945C8.91054 32.7103 9.61001 33 10.3394 33C11.0687 33 11.7682 32.7103 12.2839 32.1945C12.7996 31.6788 13.0894 30.9793 13.0894 30.25C13.0894 29.5206 12.7996 28.8212 12.2839 28.3055C11.7682 27.7897 11.0687 27.5 10.3394 27.5ZM32.3394 25.6667C33.396 25.6664 34.4202 26.0313 35.2387 26.6995C36.0572 27.3676 36.6197 28.2981 36.831 29.3333H38.756V22.5867L38.316 22H29.5894V26.5833C30.3594 26.015 31.3127 25.6667 32.3394 25.6667ZM32.3394 27.5C31.61 27.5 30.9105 27.7897 30.3948 28.3055C29.8791 28.8212 29.5894 29.5206 29.5894 30.25C29.5894 30.9793 29.8791 31.6788 30.3948 32.1945C30.9105 32.7103 31.61 33 32.3394 33C33.0687 33 33.7682 32.7103 34.2839 32.1945C34.7996 31.6788 35.0894 30.9793 35.0894 30.25C35.0894 29.5206 34.7996 28.8212 34.2839 28.3055C33.7682 27.7897 33.0687 27.5 32.3394 27.5ZM29.5894 16.5V20.1667H36.9227L34.1727 16.5H29.5894Z" fill="url(#paint0_linear)"/>
+      <defs>
+        <linearGradient id="paint0_linear" x1="21.3394" y1="9.16667" x2="21.3394" y2="34.8379" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#FF8A0C"/>
+          <stop offset="1" stopColor="#CF822F"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  )
+
+  const PlayIcon = () => (
+    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M34.632 23.551C33.9848 26.0131 30.9232 27.753 24.798 31.2326C18.8763 34.5968 15.9155 36.278 13.5303 35.6033C12.5417 35.3231 11.6424 34.7919 10.9197 34.0615C9.16699 32.2923 9.16699 28.8621 9.16699 22C9.16699 15.1378 9.16699 11.7076 10.9197 9.93847C11.6426 9.20868 12.5419 8.67818 13.5303 8.39847C15.9155 7.72014 18.8763 9.40314 24.798 12.7673C30.9213 16.247 33.9848 17.9868 34.6338 20.449C34.9034 21.4654 34.9034 22.5345 34.6338 23.551" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+
+  const SearchIcon = () => (
+    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fillRule="evenodd" clipRule="evenodd" d="M10.9998 2.5C11.5798 2.5 12.1498 2.558 12.6988 2.67C12.9587 2.72278 13.187 2.87664 13.3334 3.09775C13.4799 3.31886 13.5325 3.58909 13.4798 3.849C13.427 4.10891 13.2731 4.33721 13.052 4.48368C12.8309 4.63014 12.5607 4.68278 12.3008 4.63C11.0413 4.37306 9.73384 4.49534 8.54382 4.98139C7.3538 5.46743 6.33461 6.2954 5.61512 7.36063C4.89562 8.42586 4.50812 9.6805 4.50162 10.9659C4.49511 12.2514 4.86989 13.5099 5.57857 14.5823C6.28725 15.6548 7.298 16.493 8.48304 16.9911C9.66808 17.4892 10.9742 17.6247 12.2362 17.3805C13.4983 17.1363 14.6596 16.5234 15.5733 15.6193C16.4871 14.7152 17.1122 13.5604 17.3698 12.301C17.3959 12.1723 17.4471 12.05 17.5205 11.9411C17.5939 11.8322 17.688 11.7388 17.7975 11.6663C17.907 11.5938 18.0297 11.5435 18.1586 11.5184C18.2875 11.4933 18.4201 11.4939 18.5488 11.52C18.6775 11.5461 18.7997 11.5974 18.9086 11.6708C19.0175 11.7441 19.1109 11.8383 19.1834 11.9477C19.256 12.0572 19.3062 12.1799 19.3313 12.3088C19.3564 12.4377 19.3559 12.5703 19.3298 12.699C19.0862 13.8916 18.5893 15.018 17.8728 16.002L17.6758 16.262L21.3278 19.914C21.509 20.0935 21.6148 20.3356 21.6234 20.5905C21.6321 20.8455 21.543 21.0942 21.3743 21.2856C21.2056 21.477 20.9702 21.5967 20.7161 21.6202C20.4621 21.6437 20.2087 21.5692 20.0078 21.412L19.9138 21.328L16.2618 17.676C15.1972 18.515 13.9475 19.0872 12.6168 19.3449C11.2861 19.6026 9.91309 19.5384 8.61228 19.1576C7.31147 18.7768 6.12059 18.0904 5.139 17.1557C4.15741 16.2211 3.41357 15.0652 2.96954 13.7846C2.52551 12.504 2.39417 11.1357 2.58647 9.79404C2.77878 8.45235 3.28914 7.17609 4.075 6.07175C4.86086 4.96742 5.89941 4.06702 7.10402 3.44569C8.30863 2.82436 9.64436 2.50012 10.9998 2.5Z" fill="white"/>
+    </svg>
+  )
+
   return (
-    <div className="app">
+    <div className="min-h-screen bg-neutral text-base-content font-inter" data-theme="bestfit">
       {/* Header */}
-      <header className="header">
-        <div className="header-content">
-          <div className="logo">
-            <span className="logo-text">BestFIT</span>
+      <header className="bg-gradient-to-b from-[#353535] to-[#2E2E2E] border-b border-gray-700">
+        <div className="max-w-7xl mx-auto px-4 py-3">
+          <div className="flex justify-between items-center">
+            {/* Logo */}
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <div className="w-11 h-8 bg-gray-300 rounded-lg"></div>
+                <div className="absolute top-1 left-5 w-8 h-6 bg-gray-300 rounded-md"></div>
+              </div>
+              <span className="text-xl font-bold text-white">BestFIT</span>
+            </div>
+
+            {/* Navigation */}
+            <nav className="hidden md:flex items-center gap-9">
+              <a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors">Home</a>
+              <a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors">About</a>
+              <a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors">Products</a>
+              <a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors">Contact Sales</a>
+              <a href="#" className="text-sm text-primary font-bold">Book Demo</a>
+            </nav>
           </div>
-          <nav className="nav">
-            <a href="#" className="nav-link">Home</a>
-            <a href="#" className="nav-link">About</a>
-            <a href="#" className="nav-link">Products</a>
-            <a href="#" className="nav-link">Contact Sales</a>
-            <a href="#" className="nav-link book-demo">Book Demo</a>
-          </nav>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="main">
-        <div className="main-container">
+      <main className="max-w-7xl mx-auto p-4 md:p-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Upload Section */}
-          <div className="upload-section">
-            <h2 className="section-title">Kindly Upload the Box Images</h2>
+          <div className="card-custom p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-sm font-bold text-primary">Kindly Upload the Box Images</h2>
+              <button className="btn btn-ghost btn-sm">
+                <span className="text-primary font-bold">+</span>
+              </button>
+            </div>
+            
             <div 
-              className="upload-area"
+              className="border-2 border-dashed border-gray-600 rounded-xl p-8 min-h-[200px] bg-bg-accent flex flex-col justify-center items-center"
               onDragOver={handleDragOver}
               onDrop={handleDrop}
             >
-              {uploadedImages.length === 0 ? (
-                <div className="upload-placeholder">
-                  <div className="upload-icon">📦</div>
-                  <p className="upload-text">Drag your box picture here</p>
+              {showResults ? (
+                <div className="grid grid-cols-3 gap-4 w-full">
+                  {defaultBoxImages.map((imageUrl, index) => (
+                    <div key={index} className="relative">
+                      <div className="w-full aspect-square bg-white rounded-lg border-2 border-primary overflow-hidden">
+                        <img src={imageUrl} alt={`Box ${index + 1}`} className="w-full h-full object-cover p-2" />
+                      </div>
+                      <button className="absolute top-2 right-2 w-8 h-8 bg-black/70 text-red-500 rounded-full flex items-center justify-center text-xl font-bold hover:bg-black/90 transition-colors">
+                        +
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center">
+                  <div className="text-6xl opacity-60 mb-4">📦</div>
+                  <p className="text-gray-400 text-lg mb-6">Drag your box picture here</p>
                   <input
                     type="file"
                     multiple
                     accept="image/*"
                     onChange={handleFileInput}
-                    className="file-input"
+                    className="hidden"
                     id="file-upload"
                   />
-                  <label htmlFor="file-upload" className="upload-button">
+                  <label htmlFor="file-upload" className="btn-primary-custom cursor-pointer">
                     Upload & Process
                   </label>
-                </div>
-              ) : (
-                <div className="uploaded-images">
-                  {uploadedImages.map((image) => (
-                    <div key={image.id} className="image-preview">
-                      <img src={image.url} alt={`Box ${image.id}`} />
-                      <button className="remove-image">×</button>
-                    </div>
-                  ))}
-                  {!isProcessing && !showResults && (
-                    <button className="process-button" onClick={handleProcess}>
-                      Upload & Process
-                    </button>
-                  )}
-                </div>
-              )}
-              
-              {isProcessing && (
-                <div className="processing">
-                  <div className="processing-bar">
-                    <div className="processing-fill"></div>
-                  </div>
-                  <p>Processing...</p>
                 </div>
               )}
             </div>
           </div>
 
           {/* Vehicle Selection */}
-          <div className="vehicle-section">
-            <h2 className="section-title">Select Your Vehicle</h2>
-            <div className="truck-categories">
+          <div className="card-custom p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-sm font-bold text-primary">Select Your Vehicle</h2>
+              <button className="btn btn-ghost btn-sm">
+                <span className="text-primary font-bold text-xs">+ Add Vehicle</span>
+              </button>
+            </div>
+            
+            <div className="space-y-3 max-h-[400px] overflow-y-auto">
               {truckCategories.map((category) => (
                 <button
                   key={category.id}
-                  className={`truck-category ${selectedTruckCategory === category.id ? 'selected' : ''}`}
+                  className={`w-full p-4 rounded-lg border transition-all flex items-center gap-4 text-left ${
+                    selectedTruckCategory === category.id
+                      ? 'bg-[#502F0C] border-primary'
+                      : 'bg-transparent border-gray-600 hover:border-primary/50'
+                  }`}
                   onClick={() => setSelectedTruckCategory(category.id)}
                 >
-                  <div className="truck-icon">🚛</div>
-                  <div className="truck-info">
-                    <h3>{category.name}</h3>
-                    <p>{category.description}</p>
+                  <TruckIcon />
+                  <div className="flex-1">
+                    <h3 className={`font-bold text-base ${
+                      selectedTruckCategory === category.id ? 'text-primary' : 'text-white'
+                    }`}>
+                      {category.name}
+                    </h3>
+                    <p className={`text-xs ${
+                      selectedTruckCategory === category.id ? 'text-primary' : 'text-text-muted'
+                    }`}>
+                      {category.description}
+                    </p>
                   </div>
                 </button>
               ))}
-              <button className="load-more">Load more</button>
+              <button className="w-full text-center text-gray-500 text-xs py-2 hover:text-primary transition-colors">
+                Load more..
+              </button>
             </div>
           </div>
         </div>
 
         {/* Results Section */}
         {showResults && (
-          <div className="results-section">
-            <h2 className="section-title">Uploaded Box Details</h2>
-            <div className="results-table">
-              <table>
+          <div className="card-custom p-6 mb-8">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-sm font-bold text-primary">Uploaded Box Details</h2>
+              <button className="btn btn-ghost btn-sm">
+                <span className="text-primary font-bold">-</span>
+              </button>
+            </div>
+            
+            <div className="overflow-x-auto">
+              <table className="table w-full">
                 <thead>
-                  <tr>
-                    <th>Items</th>
-                    <th>Box Type</th>
-                    <th>Quantity</th>
-                    <th>Dimension</th>
-                    <th>Actions</th>
+                  <tr className="border-b border-gray-600">
+                    <th className="text-text-secondary font-bold text-xs">Items</th>
+                    <th className="text-text-secondary font-bold text-xs">Box Type</th>
+                    <th className="text-text-secondary font-bold text-xs">Quantity</th>
+                    <th className="text-text-secondary font-bold text-xs">Dimension</th>
+                    <th className="text-primary font-bold text-xs">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {boxResults.map((box, index) => (
-                    <tr key={index}>
-                      <td>{box.item}</td>
-                      <td>{box.boxType}</td>
-                      <td>{box.quantity}</td>
-                      <td>{box.dimension}</td>
-                      <td className="actions">
-                        <button className="edit-btn">Edit</button>
-                        <button className="delete-btn">Delete</button>
+                    <tr key={index} className="border-b border-gray-700/50">
+                      <td className="text-text-secondary text-xs">{box.item}</td>
+                      <td className="text-text-secondary text-xs">{box.boxType}</td>
+                      <td className="text-text-secondary text-xs">{box.quantity}</td>
+                      <td className="text-text-secondary text-xs">{box.dimension}</td>
+                      <td className="text-xs">
+                        <span className="text-primary cursor-pointer hover:underline">Edit</span>
+                        <span className="text-gray-500 mx-1">|</span>
+                        <span className="text-primary cursor-pointer hover:underline">Delete</span>
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-              <button className="find-truck-btn" onClick={handleFindBestTruck}>
-                🔍 Find Best Truck
+            </div>
+            
+            <div className="mt-6 text-center">
+              <button 
+                className="btn bg-primary hover:bg-primary/90 text-black font-bold px-8 py-3 rounded-full border-0"
+                onClick={handleFindBestTruck}
+              >
+                <SearchIcon />
+                Find Best Truck
               </button>
             </div>
           </div>
         )}
 
-        {/* How it works section */}
-        <div className="workflow-section">
-          <h2 className="section-title">How it works?</h2>
-          <p className="workflow-description">
-            Some Content goes here Some Content goes here Some Content goes here
-          </p>
-          <div className="workflow-steps">
-            {workflowSteps.map((step, index) => (
-              <div key={index} className="workflow-step">
-                <div className="step-indicator">✓</div>
-                <div className="step-content">
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                  <span className="step-link">Watch Tutorial</span>
-                </div>
+        {/* Final Results Section */}
+        {showFinalResults && (
+          <div className="card bg-success-bg border border-success-border p-6 shadow-inset-custom">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-sm font-bold">
+                <span className="text-primary">BestFit</span>{' '}
+                <span className="text-gray-400">Results for you Boxes are -</span>
+              </h2>
+              <button className="btn btn-ghost btn-sm">
+                <span className="text-white font-bold">-</span>
+              </button>
+            </div>
+            
+            <div className="flex justify-center">
+              <div className="relative bg-white rounded-xl p-8 max-w-md">
+                <img 
+                  src="https://api.builder.io/api/v1/image/assets/TEMP/4e724097cfb4787d7db0a581bba71eb59f127b9d?width=652" 
+                  alt="3D Visualization" 
+                  className="w-full h-auto rounded-lg"
+                />
+                <button className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-15 h-15 bg-black/20 rounded-full flex items-center justify-center hover:bg-black/30 transition-colors">
+                    <PlayIcon />
+                  </div>
+                </button>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
+        )}
       </main>
 
       {/* Footer */}
-      <footer className="footer">
-        <p>Copyright 2025 | www.bestfit.com</p>
+      <footer className="bg-[#111] text-center py-4 mt-16">
+        <p className="text-xs text-gray-600">copyright@ 2025 | www.outworx.com</p>
       </footer>
     </div>
   )
