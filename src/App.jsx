@@ -158,11 +158,11 @@ function App() {
               </p>
 
               <button
-                className="btn bg-primary hover:bg-primary/90 text-black font-bold px-8 py-3 rounded-full border-0 text-lg"
+                className="btn-glass-primary text-lg flex items-center gap-3"
                 onClick={() => document.getElementById('upload-section').scrollIntoView({ behavior: 'smooth' })}
               >
                 Get Started Now
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
